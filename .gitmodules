@@ -1,0 +1,6 @@
+[submodule "salt"]
+	path = salt
+	url = https://github.com/NerdyNicholas/salt
+[submodule "salt-config-examples"]
+	path = salt-config-examples
+	url = https://github.com/AppThemes/salt-config-example
