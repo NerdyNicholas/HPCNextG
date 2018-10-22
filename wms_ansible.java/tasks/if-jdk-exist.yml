@@ -1,0 +1,4 @@
+---
+- name: 判断jdk是否存在
+  stat: path=/usr/bin/java
+  register: usr_bin_java

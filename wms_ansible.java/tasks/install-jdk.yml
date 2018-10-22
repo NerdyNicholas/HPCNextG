@@ -1,0 +1,38 @@
+---
+- name: 发送jdk软件包到远程主机
+  copy:
+    dest: "/tmp/java.tar.gz"
+    src: "/root/{{jdk_tar_file}}" 
+- name: 发送java配置文件到远程主机
+  template:
+    src: java.sh.j2
+    dest: /etc/profile.d/java.sh
+- name: 创建java安装目录
+  file:
+    path: /opt/java
+    state: directory
+    mode: 0755
+- name: 解压jdk软件包
+  unarchive:
+    src: /tmp/java.tar.gz
+    dest: /opt/java 
+    remote_src: yes
+    extra_opts:
+      - --strip-components=1 # tar命令参数，跳过父目录
+- name: 将java命令更新为alternatives
+  command: update-alternatives --install /usr/bin/java java /opt/java/bin/java 300
+- name: 为javac更新alternatives
+  command: update-alternatives --install /usr/bin/javac javac /opt/java/bin/javac 300
+
+
+
+
+
+
+
+
+
+
+
+
+

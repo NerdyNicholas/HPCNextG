@@ -1,0 +1,19 @@
+---
+- name: 下载tomcat软件包
+  get_url:
+    url: "http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz"
+    dest: "/tmp/tomcat.tar.gz"
+- name: 创建项目WorkSpace
+  file: # 创建目录，如果不存在
+    path: /opt/tomcat
+    state: directory
+    mode: 0755
+- name: 解压缩tomcat安装包
+  unarchive:
+    remote_src: yes
+    src: "/tmp/tomcat.tar.gz"
+    dest: /opt/tomcat
+    extra_opts:
+      - --strip-components=1 # tar命令参数，跳过父目录
+  
+

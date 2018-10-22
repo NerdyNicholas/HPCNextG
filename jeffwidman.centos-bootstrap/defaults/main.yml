@@ -1,0 +1,26 @@
+---
+# defaults file for centos-bootstrap
+
+timezone: UTC
+text_editor: vim
+
+cron_email_address: "{{ email_address }}"
+
+sysadmin_tools:
+  - cronie
+  - git
+  - htop
+  - iftop
+  - iproute
+  - man
+  - ncdu
+  # - python34 # pip3 isn't included unfortunately, so don't switch to this until they ship python34-pip
+  - python-pip # pip for Python 2.7
+  - rsync
+  - sudo
+  - telnet
+  - tmux
+  - traceroute
+  - vim
+  - which
+  - yum-plugin-keys # easy management of GPG keys

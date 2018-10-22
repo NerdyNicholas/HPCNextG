@@ -1,0 +1,4 @@
+---
+- name: 判断tomcat是否存在
+  stat: path=/opt/tomcat/
+  register: tomcat_path_register

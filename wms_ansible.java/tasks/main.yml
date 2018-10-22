@@ -1,0 +1,4 @@
+---
+- import_tasks: if-jdk-exist.yml   # 判断是否已经安装
+- include_tasks: install-jdk.yml   # 如果没有安装，安装
+  when: usr_bin_java.stat.exists == false

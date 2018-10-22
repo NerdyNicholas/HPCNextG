@@ -1,0 +1,4 @@
+---
+- import_tasks: if-tomcat-exist.yml # 判断tomcat是否存在
+- include_tasks: install-tomcat-tar.yml  # 不存在就安装tomcat
+  when: tomcat_path_register.stat.exists == false
