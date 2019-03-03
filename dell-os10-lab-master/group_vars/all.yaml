@@ -1,0 +1,22 @@
+---
+
+cli:
+  username: admin 
+  password: admin 
+  host: "{{ ansible_host }}"
+
+logging:
+  server: 10.22.0.99
+
+snmp: 
+  contact: NOC@dell.com
+  location: homelab
+  community: public
+
+ntp:
+  server1: 140.0.0.88
+  server2: 144.0.9.8
+
+dns:
+  server1: 10.9.0.9
+  server2: 10.9.0.10
